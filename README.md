@@ -1,4 +1,4 @@
-# A simple CRUD app with Express, NodeJS, MongoDB
+# Simple CRUD app with ExpressJS, MongoDB
 
 ## Resources
 
