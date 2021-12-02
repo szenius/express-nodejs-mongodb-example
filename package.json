@@ -4,8 +4,8 @@
   "description": "Simple REST API with ExpressJS, MongoDB",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon server.js",
-    "start": "node server.js"
+    "dev": "nodemon app.js",
+    "start": "node app.js"
   },
   "author": "Sze Ying",
   "license": "ISC",
