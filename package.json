@@ -4,12 +4,16 @@
   "description": "Simple REST API with ExpressJS, MongoDB",
   "main": "index.js",
   "scripts": {
+    "dev": "nodemon server.js",
     "start": "node server.js"
   },
   "author": "Sze Ying",
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
   },
   "type": "module"
 }
