@@ -15,15 +15,8 @@ app.get("/", function (req, res) {
   res.send("Hello World");
 });
 
-app.post("/quotes/create", (req, res) => {
+app.post("/quotes/create", async (req, res) => {
   console.log(req.body);
-  const mongoClient = mongodb.MongoClient;
-  mongoClient.connect(process.env.MONGODB_URI, (err, client) => {
-    if (err) {
-      return console.error(err);
-    }
-    console.log("Connected to Database");
-  });
-
+  const db = await mongodb.MongoClient.connect(process.env.MONGODB_URI);
   res.send({ message: "Quote was created" });
 });
