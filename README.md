@@ -11,6 +11,8 @@
 
 ## Development
 
+### Run the server
+
 To restart server automatically during development, you can start your server by running
 
 ```
@@ -22,6 +24,10 @@ Otherwise, you can run
 ```bash
 npm start
 ```
+
+### Make requests
+
+Check out [the Postman collection](https://www.getpostman.com/collections/8bf4cc0f818293e478dd) here.
 
 ## Resources
 
