@@ -1,7 +1,7 @@
 {
   "name": "expressjs-mongodb-example",
   "version": "1.0.0",
-  "description": "Simple CRUD app with ExpressJS, MongoDB",
+  "description": "Simple REST API with ExpressJS, MongoDB",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
