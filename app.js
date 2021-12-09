@@ -1,33 +1,42 @@
+import createError from "http-errors";
 import express from "express";
-import { getQuote, getQuotes, insertQuote } from "./quotes.js";
+import path from "path";
+import cookieParser from "cookie-parser";
+import logger from "morgan";
+
+import indexRouter from "./routes/index.js";
+import bookmarksRouter from "./routes/bookmarks.js";
 
 const app = express();
+const __dirname = path.resolve(path.dirname(""));
 
+// view engine setup
+app.set("views", path.join(__dirname, "views"));
+app.set("view engine", "pug");
+
+app.use(logger("dev"));
 app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+app.use(cookieParser());
+app.use(express.static(path.join(__dirname, "public")));
 
-app.listen(3000, function () {
-  console.log("listening on 3000");
+app.use("/", indexRouter);
+app.use("/bookmarks", bookmarksRouter);
+
+// catch 404 and forward to error handler
+app.use(function (req, res, next) {
+  next(createError(404));
 });
 
-app.get("/", function (_, res) {
-  res.send("Welcome to the quotes app!");
+// error handler
+app.use(function (err, req, res, next) {
+  // set locals, only providing error in development
+  res.locals.message = err.message;
+  res.locals.error = req.app.get("env") === "development" ? err : {};
+
+  // render the error page
+  res.status(err.status || 500);
+  res.render("error");
 });
 
-app.post("/quotes/create", async (req, res) => {
-  const insertedId = await insertQuote(req.body.quote);
-  res.send({
-    id: insertedId,
-    quote: req.body.quote,
-  });
-});
-
-app.get("/quotes", async (_, res) => {
-  const quotes = await getQuotes();
-  res.send({ quotes });
-});
-
-app.get("/quotes/:id", async (req, res) => {
-  const id = req.params.id;
-  const quote = await getQuote(id);
-  res.send({ id, quote });
-});
+export default app;

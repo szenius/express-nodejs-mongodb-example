@@ -1,4 +1,11 @@
-# Simple REST API with ExpressJS, MongoDB
+# Simple CRUD REST API with ExpressJS, MongoDB
+
+This project was created using the [Express application generator](https://expressjs.com/en/starter/generator.html).
+
+- `npm install -g express-generator`
+- `express --view=pug express-example`
+- `npm i`
+- `npm start`
 
 ## Installation
 
@@ -28,7 +35,3 @@ npm start
 ### Make requests
 
 Check out [the Postman collection](https://www.getpostman.com/collections/8bf4cc0f818293e478dd) here.
-
-## Resources
-
-- [Setup tutorial](https://zellwk.com/blog/crud-express-mongodb/)
