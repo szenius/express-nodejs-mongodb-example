@@ -16,6 +16,12 @@ This project was created using the [Express application generator](https://expre
 3. Create a new collection called "bookmarks".
 4. Make a copy of `.env.example` and call the new file `.env`. Fill in the `MONGODB_URI` value.
 
+### Dependencies
+
+```
+npm i
+```
+
 ## Development
 
 ### Run the server
